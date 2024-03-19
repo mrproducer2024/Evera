@@ -23,7 +23,7 @@ const Dashboard = async () => {
           uniqueCategories?.map((uniqueCategory, categoryIndex) => (
             <div key={categoryIndex} className="mb-4">
               <div className="flex flex-wrap items-center justify-between mb-8">
-                <h2 className="mr-10 text-4xl font-bold leading-none md:text-5xl" id={uniqueCategory}>
+                <h2 className="mr-10 text-2xl font-bold leading-none text-white" id={uniqueCategory}>
                   {uniqueCategory}
                 </h2>
               </div>
@@ -40,7 +40,6 @@ const Dashboard = async () => {
               </div>
             </div>
           ))}
-          <div id="pos-article-display-94687"></div>
       </div>
     </div>
   );

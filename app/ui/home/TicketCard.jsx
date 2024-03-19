@@ -20,21 +20,31 @@ const TicketCard = ({ ticket }) => {
   const createdDateTime = formatTimestamp(ticket.createdAt);
 
   return (
-    <div className="flex flex-col border border-gray-400 rounded-md shadow-lg p-3 m-2">
-      <Link href={`/Tickets/${ticket._id}`} style={{ display: "contents" }}>
-      <img src={ticket.imgurl} alt={ticket.title} className="object-cover object-center w-full h-48" />
+    <div >
+      <a href={`/Tickets/${ticket._id}`} style={{ display: "contents" }}>
+      
+        <div className=" rounded-md bg-gray-800 shadow-lg">
+          <div className="flex px-4 leading-none  flex-col">
+            <div className="flex-none ">
+              <img
+               src={ticket.imgurl} alt={ticket.title}
+                className="h-full w-full rounded-md shadow-2xl transform -translate-y-4 border-4 border-gray-300"
+              />
+            </div>
 
-        <h4 className="mb-1">{ticket.title}</h4>
-        <hr className="h-px  border-0 bg-page mb-2 "></hr>
-        <p className="whitespace-pre-wrap">{ticket.description}</p>
-
-        <div className="flex-grow"></div>
-        <div className="flex mt-2">
-          <div className="flex flex-col">
-            <p className="text-xs  my-1">{createdDateTime}</p>
+            <div className="flex-col text-gray-300">
+              <p className="pt-4 text-2xl font-bold">{ticket.title}</p>
+              <hr className="hr-text" data-content="" />
+              <p className="block px-4 my-4 text-sm">
+              {ticket.description}
+              </p>
+              <p className="block px-4 my-4 text-sm">
+              {createdDateTime}
+              </p>
+            </div>
           </div>
         </div>
-      </Link>
+      </a>
     </div>
   );
 };

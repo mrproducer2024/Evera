@@ -27,18 +27,14 @@ const Ticket = () => {
           <div className="p-4">
             <h1 className="text-center mb-3">{battle.title}</h1>
             <p>
-              <div id="pos-article-display-card-94403"></div>
               {battle.description}
             </p>
             <p>{battle.body}</p>
-            <div id="pos-article-text-card-94410"></div>
-            <div id="pos-article-display-94407"></div>
             <CommentsSec />
             <CommentForm />
           </div>
         </div>
         <div className="col-span-0 md:col-span-4 lg:col-span-3">
-          <div id="pos-article-text-94696"></div>
         </div>
       </div>
     </>

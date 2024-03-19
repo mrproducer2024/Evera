@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import {Analytics} from "@vercel/analytics/react"
+import SiteConfig from "./config/site"
 import {SpeedInsights} from "@vercel/speed-insights/next"
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -10,8 +11,8 @@ config.autoAddCss = false;
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "مگ نتی فای |‌ Magnitify",
-  description: "به روز باشید و زندگی خود را بهبود بخشید",
+  title: SiteConfig.name,
+  description: SiteConfig.description,
 };
 
 
