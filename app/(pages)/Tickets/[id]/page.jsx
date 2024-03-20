@@ -29,12 +29,16 @@ const Ticket = () => {
             <p>
               {battle.description}
             </p>
+            <div id="pos-article-display-card-94894"></div>
             <p>{battle.body}</p>
+            <div id="pos-article-display-94895"></div>
+            <div id="pos-article-text-card-94896"></div>
             <CommentsSec />
             <CommentForm />
           </div>
         </div>
         <div className="col-span-0 md:col-span-4 lg:col-span-3">
+        <div id="pos-article-display-94893"></div>
         </div>
       </div>
     </>

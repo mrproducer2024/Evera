@@ -6,11 +6,15 @@ const Home = () => {
     <div className="fixed top-0 left-0 right-0 bottom-0 w-screen h-screen bg-black" style={{backgroundImage: 'url(/bg.webp)'}}>
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-0 md:col-span-2">
+        <div id="pos-article-display-94890"></div>
         </div>
         <div className="col-span-12 md:col-span-8">
           <Dashboard />
+          <div id="pos-article-display-94891"></div>
+          <div id="pos-article-text-94892"></div>
         </div>
         <div className="col-span-0 md:col-span-2">
+        <div id="pos-article-display-94889"></div>
         </div>
       </div>
     </div>
