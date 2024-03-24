@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import SiteConfig from "../../config/site"
+import SiteConfig from "../../config/site";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -14,7 +14,7 @@ const Login = () => {
     }
   }, []);
   const handleLogin = () => {
-    if (username == "hamed" && password == "123a456c") {
+    if (username == "test" && password == "123456") {
       localStorage.setItem("isLoggedIn", true);
       router.push("/admin");
     } else {
@@ -25,7 +25,7 @@ const Login = () => {
     <div className="flex h-screen bg-indigo-700">
       <div className="w-full max-w-xs m-auto bg-indigo-100 rounded p-5">
         <header className="text-indigo-500 text-2xl	font-extrabold text-center">
-           <span className="text-black font-normal	">ادمین</span> {SiteConfig.name}
+           <span className="text-black font-normal">ادمین</span> {SiteConfig.name}
         </header>
         <div>
           <label className="block mb-2 text-indigo-500" for="username">

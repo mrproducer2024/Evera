@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const EditTicketForm = ({ ticket }) => {
@@ -9,17 +9,16 @@ const EditTicketForm = ({ ticket }) => {
   const startingTicketData = {
     title: "",
     description: "",
-    priority: 1,
-    progress: 0,
     body: "",
     category: "همه",
-    imgurl : ""
+    imgurl: "",
   };
 
   if (EDITMODE) {
     startingTicketData["title"] = ticket.title;
     startingTicketData["description"] = ticket.description;
     startingTicketData["body"] = ticket.body;
+    startingTicketData["category"] = ticket.category;
     startingTicketData["imgurl"] = ticket.imgurl;
   }
 
@@ -34,10 +33,11 @@ const EditTicketForm = ({ ticket }) => {
       [name]: value,
     }));
   };
+  const [loading , setLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     if (EDITMODE) {
       const res = await fetch(`/api/Tickets/${ticket._id}`, {
         method: "PUT",
@@ -79,15 +79,15 @@ const EditTicketForm = ({ ticket }) => {
     fetchCategories();
   }, []);
 
-
   return (
     <div className=" flex justify-center">
+      {loading && <span className="absolute loading loading-ring loading-lg"></span>}
       <form
         onSubmit={handleSubmit}
         method="post"
-        className="flex flex-col gap-3 w-1/2"
+        className="flex flex-col gap-3 w-full md:w-1/2"
       >
-        <h3>{EDITMODE ? "Update Your Ticket" : "Create New Ticket"}</h3>
+        <h3>{EDITMODE ? "ویرایش پست" : "پست جدید"}</h3>
         <label>لینک عکس</label>
         <input
           id="imgurl"
@@ -96,6 +96,7 @@ const EditTicketForm = ({ ticket }) => {
           onChange={handleChange}
           required={true}
           value={formData.imgurl}
+          className="input input-bordered input-primary w-full"
         />
         <label>تیتر</label>
         <input
@@ -105,6 +106,7 @@ const EditTicketForm = ({ ticket }) => {
           onChange={handleChange}
           required={true}
           value={formData.title}
+          className="input input-bordered input-primary w-full"
         />
         <label>لید</label>
         <textarea
@@ -114,8 +116,9 @@ const EditTicketForm = ({ ticket }) => {
           required={true}
           value={formData.description}
           rows="5"
+          className="textarea textarea-primary"
         />
-         <label>متن</label>
+        <label>متن</label>
         <textarea
           id="body"
           name="body"
@@ -123,12 +126,15 @@ const EditTicketForm = ({ ticket }) => {
           required={true}
           value={formData.body}
           rows="10"
+          className="textarea textarea-primary"
         />
         <label>بخش</label>
         <select
+          className="select select-primary w-full"
           name="category"
           value={formData.category}
           onChange={handleChange}
+          multiple
         >
           {categories?.map((category) => (
             <option key={category._id} value={category.name}>
@@ -138,7 +144,7 @@ const EditTicketForm = ({ ticket }) => {
         </select>
         <input
           type="submit"
-          className="btn max-w-xs"
+          className="btn btn-active btn-primary"
           value={EDITMODE ? "دخیره" : "پست"}
         />
       </form>
